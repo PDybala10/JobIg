@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#006DB3</color>
+    <color name="colorPrimaryDark">#006DB3</color>
+    <color name="colorAccent">#006DB3</color>
+    <color name="colorPrimaryLight">#006DB3</color>
+    <color name="colorWhite">#fff</color>
+    <color name="colorNotOpen">#918888</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorProfil">#CACACA</color>
+    <color name="colorBouton">#E92D1E</color>
+    <color name="colorOrange">#FF5722</color>
+    <color name="colorIncolor">#00FFFFFF</color>
+    <color name="colorRouge_vin">#B14343</color>
+    <color name="colorTransparent">#02000000</color>
+    <color name="toolbar">#006DB3</color>
+    <color name="color">#71FFFFFF</color>
+
+    <!--color utiliser pour le pdf-->
+    <color name="colorPdfGray">#BEBDBD</color>
+    <color name="colorPdfBlue">#006DB3</color>
+</resources>

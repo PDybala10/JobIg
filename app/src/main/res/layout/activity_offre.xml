@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OffreActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="56dp"
+        android:paddingTop="8dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/rl_bottom_offre_activity"
+            android:layout_alignParentTop="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp">
+
+                <TextView
+                    android:id="@+id/tv_categorie_offre_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:paddingBottom="8dp"
+                    android:text="@string/developpeur_web"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="32sp" />
+
+                <TextView
+                    android:id="@+id/tv_description_offre_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_categorie_offre_activity"
+                    android:paddingBottom="8dp"
+                    android:text="@string/seed_innov_recrute_de_nouveau_developpeur_web"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="21sp" />
+
+                <TextView
+                    android:id="@+id/tv_date_offre_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_description_offre_activity"
+                    android:layout_alignParentBottom="true"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/poste_le_07_02_2019"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom_offre_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="16dp"
+            android:paddingTop="4dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:background="@color/colorPrimary"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_reply" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_share_white_32dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_check_white_32dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
