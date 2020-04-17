@@ -125,4 +125,15 @@ public class HomeFragment extends Fragment {
         /*   ici on contruit les recycleViews     */
     }
 
+    public boolean findWords(String wordFound, String wordFind){
+
+        int pos = wordFind.indexOf(wordFound);
+        if(pos != -1){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }
