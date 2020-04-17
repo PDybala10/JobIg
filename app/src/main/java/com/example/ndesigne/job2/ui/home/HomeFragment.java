@@ -87,6 +87,8 @@ public class HomeFragment extends Fragment {
 
                       offreList.add(response.body().get(i));
                   }
+
+
                   buildRecycleView();
                     Toast.makeText(MainActivity.MY_CONTEXT,"serveur good",Toast.LENGTH_LONG).show();
                 }
@@ -112,12 +114,24 @@ public class HomeFragment extends Fragment {
         //la liste des categorie
         ArrayList<OffreCategorie> listOffres = new ArrayList<OffreCategorie>();
         //on initialise la liste
-        for(int i=0; i<4; i++){
-            OffreCategorie categorie = new OffreCategorie();
-             categorie.setData((ArrayList<Offre>) offreList);
 
+            OffreCategorie categorie = new OffreCategorie();
+            categorie = createCategorie("Engineer",offreList);
             listOffres.add(categorie);
-        }
+            OffreCategorie categorie1 = new OffreCategorie();
+            categorie1 = createCategorie("Developer",offreList);
+            listOffres.add(categorie1);
+            OffreCategorie categorie2 = new OffreCategorie();
+            categorie2 = createCategorie("Mobile",offreList);
+            listOffres.add(categorie2);
+            OffreCategorie categorie3 = new OffreCategorie();
+            List<String> stringList = null;
+            stringList.add("Engineer");
+            stringList.add("Developer");
+            stringList.add("Mobile");
+            categorie3 = createCategorieAutre(stringList,offreList);
+            listOffres.add(categorie3);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.MY_CONTEXT);
         recyclerViewOffre.setLayoutManager(layoutManager);
         //on ajoute a la liste son adapter
@@ -141,12 +155,30 @@ public class HomeFragment extends Fragment {
     public OffreCategorie createCategorie(String nameCategorie, List<Offre> offres){
         OffreCategorie categorie = new OffreCategorie();
         categorie.setTitre(nameCategorie);
-        for (int i=0; i<offreList.size(); i++){
+        for (int i=0; i<offres.size(); i++){
             if(findWords(nameCategorie,offres.get(i).getTitle()) == true){
-                categorie.getData().add(offreList.get(i));
+                categorie.getData().add(offres.get(i));
             }
         }
         return categorie;
+    }
+
+    public OffreCategorie createCategorieAutre(List<String> nameCategorie, List<Offre> offres){
+        OffreCategorie categorie = new OffreCategorie();
+        boolean test = false;
+        categorie.setTitre("Autres");
+        for (int i=0; i<offres.size(); i++){
+            for (int j=0; j<nameCategorie.size(); j++){
+                if(findWords(nameCategorie.get(j),offres.get(i).getTitle()) == true){
+                    test= true;
+                }
+            }
+            if (test == false){
+                categorie.getData().add(offres.get(i));
+            }
+        }
+        return categorie;
+
     }
 
 }

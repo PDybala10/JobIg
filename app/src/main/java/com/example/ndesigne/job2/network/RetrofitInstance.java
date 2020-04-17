@@ -15,21 +15,20 @@ public class RetrofitInstance {
      * TODO: Remplacer cette adresse par l'adresse effective une deploye
      * */
 
-    private static String BASE_URL = "https://jobs.github.com";
+    private static String BASE_URL = "https://jobs.github.com/";
 
     /**
      * Retourne une instance retrofit a base de BASE_URL
      * */
     public static Retrofit getRetrofitInstance(){
-        if (retrofit == null){
-            Gson gson = new GsonBuilder()
-                    .setLenient()
-                    .create();
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .build();
-        }
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
         return retrofit;
     }
 
