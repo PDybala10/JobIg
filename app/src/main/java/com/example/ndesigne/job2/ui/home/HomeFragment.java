@@ -30,6 +30,8 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.namespace.QName;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -134,6 +136,17 @@ public class HomeFragment extends Fragment {
         else {
             return false;
         }
+    }
+
+    public OffreCategorie createCategorie(String nameCategorie, List<Offre> offres){
+        OffreCategorie categorie = new OffreCategorie();
+        categorie.setTitre(nameCategorie);
+        for (int i=0; i<offreList.size(); i++){
+            if(findWords(nameCategorie,offres.get(i).getTitle()) == true){
+                categorie.getData().add(offreList.get(i));
+            }
+        }
+        return categorie;
     }
 
 }
