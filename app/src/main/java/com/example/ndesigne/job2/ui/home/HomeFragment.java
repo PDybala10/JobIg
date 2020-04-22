@@ -125,7 +125,7 @@ public class HomeFragment extends Fragment {
             categorie2 = createCategorie("Mobile",offreList);
             listOffres.add(categorie2);
             OffreCategorie categorie3 = new OffreCategorie();
-            List<String> stringList = null;
+            ArrayList<String> stringList = new ArrayList<String>();
             stringList.add("Engineer");
             stringList.add("Developer");
             stringList.add("Mobile");
@@ -156,26 +156,29 @@ public class HomeFragment extends Fragment {
         OffreCategorie categorie = new OffreCategorie();
         categorie.setTitre(nameCategorie);
         for (int i=0; i<offres.size(); i++){
-            if(findWords(nameCategorie,offres.get(i).getTitle()) == true){
+            if(findWords(nameCategorie,offres.get(i).getTitle()) == true || findWords(nameCategorie.toLowerCase(),offres.get(i).getTitle().toLowerCase()) == true ){
                 categorie.getData().add(offres.get(i));
             }
         }
         return categorie;
     }
 
-    public OffreCategorie createCategorieAutre(List<String> nameCategorie, List<Offre> offres){
+    public OffreCategorie createCategorieAutre(ArrayList<String> nameCategorie, List<Offre> offres){
         OffreCategorie categorie = new OffreCategorie();
         boolean test = false;
         categorie.setTitre("Autres");
         for (int i=0; i<offres.size(); i++){
+            test = false;
             for (int j=0; j<nameCategorie.size(); j++){
-                if(findWords(nameCategorie.get(j),offres.get(i).getTitle()) == true){
+                if(findWords(nameCategorie.get(j),offres.get(i).getTitle()) == true || findWords(nameCategorie.get(j).toLowerCase(),offres.get(i).getTitle().toLowerCase()) == true){
                     test= true;
                 }
+
             }
             if (test == false){
                 categorie.getData().add(offres.get(i));
             }
+
         }
         return categorie;
 
