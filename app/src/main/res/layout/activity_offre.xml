@@ -67,7 +67,7 @@
                     android:paddingTop="16dp"
                     android:paddingBottom="4dp"
                     android:text="@string/location_paris"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
                 <TextView
                     android:id="@+id/create_offre_activity"
                     android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                     android:paddingTop="16dp"
                     android:paddingBottom="4dp"
                     android:text="@string/poste_le_07_02_2019"
-                    android:textSize="18sp" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </ScrollView>
 
@@ -117,6 +117,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
+                        android:id="@+id/share_offre"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:padding="8dp"
@@ -130,6 +131,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
+                        android:id="@+id/apply_offre"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:padding="8dp"

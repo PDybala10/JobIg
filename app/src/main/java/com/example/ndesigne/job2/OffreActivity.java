@@ -21,6 +21,8 @@ public class OffreActivity extends AppCompatActivity {
     private TextView description_offre;
     private TextView location_offre;
     private  TextView create_offre;
+    private ImageView applyOffre;
+    private ImageView shareOffre;
 
 
 
@@ -35,16 +37,18 @@ public class OffreActivity extends AppCompatActivity {
         description_offre = findViewById(R.id.tv_description_offre_activity);
         location_offre = findViewById(R.id.location_offre_activity);
         create_offre = findViewById(R.id.create_offre_activity);
+        applyOffre = findViewById(R.id.apply_offre);
+        shareOffre = findViewById(R.id.share_offre);
 
         /*modification des éléments*/
         title_offre.setText(AdapterOffreH.o.getTitle());
-        description_offre.setText(AdapterOffreH.o.getDescription());
-        location_offre.setText(AdapterOffreH.o.getLocation());
-        create_offre.setText(AdapterOffreH.o.getCreated_at());
+        description_offre.setText(CleanString(AdapterOffreH.o.getDescription()));
+        location_offre.setText("Location : "+AdapterOffreH.o.getLocation());
+        create_offre.setText("Date of creation : "+AdapterOffreH.o.getCreated_at());
 
         /*Recuperation  de l'image*/
         String url = AdapterOffreH.o.getCompany_logo();
-        Picasso.with(this).load(url).resize(451,134).into(imageOffre);
+        Picasso.with(this).load(url).resize(461,134).into(imageOffre);
 
 
         AdapterOffreH.o = null;
@@ -53,6 +57,26 @@ public class OffreActivity extends AppCompatActivity {
     public void arrawBack(View v){
         this.finish();
 
+    }
+
+    String CleanString(String chaine){
+        String s="";
+        int j = 0;
+        char arr[]=chaine.toCharArray();
+        for(int i=0;i<arr.length;i++){
+
+            if (arr[i] == '<') {
+                j = 1;
+            }
+
+            if(j == 0) {
+                s = s + arr[i];
+            }
+            if (arr[i] == '>'){
+                j = 0;
+            }
+        }
+        return s;
     }
 
 }
