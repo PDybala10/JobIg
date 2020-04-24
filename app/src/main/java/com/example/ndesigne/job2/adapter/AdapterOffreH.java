@@ -30,7 +30,8 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
     LayoutInflater inflater;
 
     //definit l'id de l'offre a la quelle on veut acceder
-    int toacces;
+    static int toacces;
+    public static  Offre o;
 
     public AdapterOffreH(ArrayList<Offre> list, LayoutInflater inflater) {
         this.list = list;
@@ -45,22 +46,30 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final OffreViewH offreViewH, int i) {
-        Offre o = list.get(i);
+    public void onBindViewHolder(@NonNull final OffreViewH offreViewH, final int i) {
+            o = list.get(i);
         //on met a jour les element de la vue
           offreViewH.titleOffre.setText(o.getTitle());
-         offreViewH.companyOffre.setText(o.getCompany());
-         offreViewH.locationOffre.setText(o.getLocation());
-         offreViewH.dateOffre.setText(o.getCreated_at());
-        offreViewH.typeOffre.setText(o.getType());
-        toacces = i;
-        offreViewH.base.setOnClickListener(new View.OnClickListener() {
+          offreViewH.companyOffre.setText(o.getCompany());
+          offreViewH.locationOffre.setText(o.getLocation());
+          offreViewH.dateOffre.setText(o.getCreated_at());
+          offreViewH.typeOffre.setText(o.getType());
+
+
+
+        //toacces = i;
+
+        offreViewH.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.openOffre(toacces);
+
+                MainActivity.openOffre(i);
+                o = list.get(i);
+              /*  OffreActivity offreActivity= new OffreActivity();
+                Intent intent = new Intent(MainActivity.MY_CONTEXT, OffreActivity.class);*/
             }
         });
-        Intent intent = new Intent(MainActivity.MY_CONTEXT, OffreActivity.class);
+
     }
 
 

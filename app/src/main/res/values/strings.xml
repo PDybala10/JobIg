@@ -91,5 +91,6 @@
     <string name="esiea">Esiea</string>
     <string name="paris">Paris</string>
     <string name="full_time">Full Time</string>
+    <string name="location_paris">Location : Paris</string>
 
 </resources>

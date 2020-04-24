@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ndesigne.job2.entities.Offre;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -23,6 +25,7 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static TextView title_offre;
     private AppBarConfiguration mAppBarConfiguration;
     public static Context MY_CONTEXT;
     @Override
@@ -94,8 +97,12 @@ public class MainActivity extends AppCompatActivity {
 
     //Cette fontion sera appeler a chaque fois qu'on voudra ouvrir une offre
     public static void openOffre(int id){
+        /*title_offre = findViewById(R.id.title_offre_activity);
+        title_offre.setText(offre.getTitle());*/
         Intent intent = new Intent(MainActivity.MY_CONTEXT, OffreActivity.class);
         MainActivity.MY_CONTEXT.startActivity(intent);
+
+
 
     }
 

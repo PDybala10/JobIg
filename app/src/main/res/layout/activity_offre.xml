@@ -7,12 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".OffreActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_offre"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:id="@+id/company_logo_offre_activity"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="86dp"
         android:paddingTop="8dp">
 
         <ScrollView
@@ -21,43 +28,56 @@
             android:layout_above="@id/rl_bottom_offre_activity"
             android:layout_alignParentTop="true">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:paddingLeft="16dp"
                 android:paddingRight="8dp">
 
                 <TextView
-                    android:id="@+id/tv_categorie_offre_activity"
+                    android:id="@+id/title_offre_activity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:maxLines="2"
                     android:paddingBottom="8dp"
+                    android:textStyle="bold|italic"
                     android:text="@string/developpeur_web"
                     android:textColor="@color/colorBlack"
-                    android:textSize="32sp" />
+                    android:fontFamily="sans-serif"
+                    android:textSize="25sp" />
+
 
                 <TextView
                     android:id="@+id/tv_description_offre_activity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_categorie_offre_activity"
                     android:paddingBottom="8dp"
+                    android:textStyle="italic"
                     android:text="@string/seed_innov_recrute_de_nouveau_developpeur_web"
                     android:textColor="@color/colorBlack"
-                    android:textSize="21sp" />
+                    android:fontFamily="sans-serif"
+                    android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/tv_date_offre_activity"
+                    android:id="@+id/location_offre_activity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_description_offre_activity"
+                    android:layout_alignParentBottom="true"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/location_paris"
+                    android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/create_offre_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingTop="16dp"
                     android:paddingBottom="4dp"
                     android:text="@string/poste_le_07_02_2019"
                     android:textSize="18sp" />
-            </RelativeLayout>
+            </LinearLayout>
         </ScrollView>
 
         <RelativeLayout
