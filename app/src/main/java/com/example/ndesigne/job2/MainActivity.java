@@ -3,6 +3,7 @@ package com.example.ndesigne.job2;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ndesigne.job2.entities.Offre;
+import com.example.ndesigne.job2.ui.slideshow.SlideshowFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -25,6 +27,7 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private static TextView title_offre;
     private AppBarConfiguration mAppBarConfiguration;
     public static Context MY_CONTEXT;
@@ -35,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.MY_CONTEXT = this;
 
         setContentView(R.layout.activity_main);
+
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -76,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
     }
 
 
