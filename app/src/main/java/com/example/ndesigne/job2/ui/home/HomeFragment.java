@@ -1,5 +1,7 @@
 package com.example.ndesigne.job2.ui.home;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,11 +24,14 @@ import com.example.ndesigne.job2.entities.Offre;
 import com.example.ndesigne.job2.entities.OffreCategorie;
 import com.example.ndesigne.job2.entities.OffreList;
 import com.example.ndesigne.job2.network.RetrofitInstance;
+import com.example.ndesigne.job2.preferences.OffrePreference;
 import com.example.ndesigne.job2.service.Service;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,11 +45,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
 
+    private static String BASE_URL = "https://jobs.github.com/";
+
     private HomeViewModel homeViewModel;
     private RecyclerView recyclerViewOffre;
     private RecyclerView.Adapter adapter;
-    private static String BASE_URL = "https://jobs.github.com/";
-    public static List<Offre> offreList = new ArrayList<Offre>();
+    private List<Offre> offreList = new ArrayList<Offre>();
+    private SharedPreferences preferences;
+    private Gson gson;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -59,17 +67,38 @@ public class HomeFragment extends Fragment {
             }
         });*/
         recyclerViewOffre = root.findViewById(R.id.recycle_view_fragment_home);
-        MakeApiCall();
 
+       preferences =  getContext().getSharedPreferences(OffrePreference.PREFERENCE_NAME, Context.MODE_PRIVATE);
 
+        gson = new GsonBuilder()
+                .setLenient()
+                .create();
+        List<Offre> listOffresPreferences = getDataPreferences();
+        if(listOffresPreferences != null){
+
+            buildRecycleView(listOffresPreferences);
+        }
+        else {
+            MakeApiCall();
+        }
 
         return root;
     }
 
+    private List<Offre> getDataPreferences() {
+        String jsonOffre =  preferences.getString(OffrePreference.PREFERENCE_KEY,null);
+
+        if(jsonOffre == null) {
+            return null;
+        }
+        else {
+            Type type = new TypeToken<List<Offre>>() {
+            }.getType();
+            return gson.fromJson(jsonOffre, type);
+        }
+    }
+
     private void MakeApiCall(){
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -87,9 +116,8 @@ public class HomeFragment extends Fragment {
 
                       offreList.add(response.body().get(i));
                   }
-
-
-                  buildRecycleView();
+                    savePreferences(offreList);
+                    buildRecycleView(offreList);
                     Toast.makeText(MainActivity.MY_CONTEXT,"serveur good",Toast.LENGTH_LONG).show();
                 }
                 else {
@@ -104,11 +132,22 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    private void savePreferences(List<Offre> offreList) {
+        String jsonString = gson.toJson(offreList);
+
+        preferences
+                .edit()
+                .putString(OffrePreference.PREFERENCE_KEY, jsonString)
+                .apply();
+
+        Toast.makeText(MainActivity.MY_CONTEXT," list saved",Toast.LENGTH_LONG).show();
+    }
+
     private void showError() {
         Toast.makeText(MainActivity.MY_CONTEXT,"erreur serveur",Toast.LENGTH_LONG).show();
     }
 
-    public void buildRecycleView(){
+    public void buildRecycleView(List<Offre> offres){
         /*   ici on contruit les recycleViews     */
 
         //la liste des categorie
@@ -116,20 +155,20 @@ public class HomeFragment extends Fragment {
         //on initialise la liste
 
             OffreCategorie categorie = new OffreCategorie();
-            categorie = createCategorie("Engineer",offreList);
+            categorie = createCategorie("Engineer",offres);
             listOffres.add(categorie);
             OffreCategorie categorie1 = new OffreCategorie();
-            categorie1 = createCategorie("Developer",offreList);
+            categorie1 = createCategorie("Developer",offres);
             listOffres.add(categorie1);
             OffreCategorie categorie2 = new OffreCategorie();
-            categorie2 = createCategorie("Mobile",offreList);
+            categorie2 = createCategorie("Mobile",offres);
             listOffres.add(categorie2);
             OffreCategorie categorie3 = new OffreCategorie();
             ArrayList<String> stringList = new ArrayList<String>();
             stringList.add("Engineer");
             stringList.add("Developer");
             stringList.add("Mobile");
-            categorie3 = createCategorieAutre(stringList,offreList);
+            categorie3 = createCategorieAutre(stringList,offres);
             listOffres.add(categorie3);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(MainActivity.MY_CONTEXT);

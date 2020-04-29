@@ -106,8 +106,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:id="@+id/copy_offre"
                         android:padding="8dp"
-                        android:src="@drawable/ic_reply" />
+                        android:src="@drawable/ic_content_copy_black_24dp" />
                 </RelativeLayout>
 
                 <RelativeLayout
