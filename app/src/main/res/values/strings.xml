@@ -62,6 +62,7 @@
     <string name="non">Non</string>
     <string name="oui">Oui</string>
 
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="niveau">Niveau</string>
@@ -90,6 +91,9 @@
     <string name="email_">Email :</string>
     <string name="esiea">Esiea</string>
     <string name="paris">Paris</string>
+    <string name="nom">Nom *</string>
+    <string name="email">Email *</string>
+    <string name="prenom">Prénom *</string>
     <string name="full_time">Full Time</string>
     <string name="location_paris">Location : Paris</string>
 

@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.MY_CONTEXT, MakeCvActivity.class);
+                startActivity(intent);
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -69,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.nav_create_cv :
-                        Toast.makeText(getApplicationContext(), "Igor NDE",Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(MainActivity.MY_CONTEXT, MakeCvActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.nav_contact_us :
                         Toast.makeText(getApplicationContext(), "Igor NDE",Toast.LENGTH_LONG).show();
