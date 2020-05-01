@@ -16,11 +16,8 @@ public class OffreCategorie {
         /*
         * constructeur par defaut pour les tests devra etre modifier par la suite
         * */
+
         titre="Default Categorie";
-       /*
-        for(int i=0; i<5; i++){
-            data.add(new Offre());
-        }*/
     }
 
     public String getTitre() {

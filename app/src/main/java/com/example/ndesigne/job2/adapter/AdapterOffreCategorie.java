@@ -19,6 +19,7 @@ public class AdapterOffreCategorie extends RecyclerView.Adapter<CatOffreViewHold
 
     //la variable qui nous permettra d'inflater nous vue
     LayoutInflater inflater;
+    
     //la liste des elements a afficher
     ArrayList<OffreCategorie> list ;
 
@@ -40,8 +41,10 @@ public class AdapterOffreCategorie extends RecyclerView.Adapter<CatOffreViewHold
             //on recupere l'offre a afficher
             OffreCategorie oc = list.get(position);
             catOffreViewHolder.text.setText(oc.getTitre());
+
             //le layoutmanager permet d'afficher e recycleview a l'horizontal
             LinearLayoutManager layoutManager = new LinearLayoutManager(catOffreViewHolder.text.getContext());
+
             //on definit son orientation
             layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
             catOffreViewHolder.recyclerView.setLayoutManager(layoutManager);

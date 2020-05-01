@@ -1,7 +1,6 @@
 package com.example.ndesigne.job2.ui.cv;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +35,7 @@ public class LangueFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_langue, container, false);
     }
@@ -52,7 +52,6 @@ public class LangueFragment extends Fragment {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("YESSS","Ok...Yes");
                 LayoutInflater inflater = LayoutInflater.from(getContext());
                 View l = inflater.inflate(R.layout.langue,null);
                 ImageView iv = l.findViewById(R.id.iv_del_langue);

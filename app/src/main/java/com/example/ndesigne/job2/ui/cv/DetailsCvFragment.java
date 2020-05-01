@@ -35,6 +35,7 @@ public class DetailsCvFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_details_cv, container, false);
     }
@@ -42,13 +43,13 @@ public class DetailsCvFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        nom = (EditText)view.findViewById(R.id.et_nom_detail_frag);
-        prenom = (EditText)view.findViewById(R.id.et_prenom_detail_frag);
-        adresse = (EditText)view.findViewById(R.id.et_adresse_detail_frag);
-        tel = (EditText)view.findViewById(R.id.et_tel_detail_frag);
-        email = (EditText)view.findViewById(R.id.et_email_detail_frag);
-        birthday = (EditText)view.findViewById(R.id.et_birthday_detail_frag);
-        nationalite = (EditText)view.findViewById(R.id.et_nationalite_detail_frag);
+        nom = view.findViewById(R.id.et_nom_detail_frag);
+        prenom = view.findViewById(R.id.et_prenom_detail_frag);
+        adresse = view.findViewById(R.id.et_adresse_detail_frag);
+        tel = view.findViewById(R.id.et_tel_detail_frag);
+        email = view.findViewById(R.id.et_email_detail_frag);
+        birthday = view.findViewById(R.id.et_birthday_detail_frag);
+        nationalite = view.findViewById(R.id.et_nationalite_detail_frag);
 
     }
 

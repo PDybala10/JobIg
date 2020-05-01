@@ -106,9 +106,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:id="@+id/copy_offre"
+                        android:id="@+id/web_offre"
                         android:padding="8dp"
-                        android:src="@drawable/ic_content_copy_black_24dp" />
+                        android:src="@drawable/web" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -136,6 +136,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:padding="8dp"
+                        android:onClick="browser"
                         android:src="@drawable/ic_check_white_32dp" />
                 </RelativeLayout>
             </LinearLayout>

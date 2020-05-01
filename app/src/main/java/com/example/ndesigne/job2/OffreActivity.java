@@ -1,30 +1,20 @@
 package com.example.ndesigne.job2;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.ndesigne.job2.R;
 import com.example.ndesigne.job2.adapter.AdapterOffreH;
-import com.example.ndesigne.job2.entities.Offre;
 import com.squareup.picasso.Picasso;
-
-import java.util.concurrent.CopyOnWriteArraySet;
 
 
 public class OffreActivity extends AppCompatActivity {
 
-    //Offre offre;
     private ImageView imageOffre;
     private  TextView title_offre;
     private TextView description_offre;
@@ -32,7 +22,7 @@ public class OffreActivity extends AppCompatActivity {
     private  TextView create_offre;
     private ImageView applyOffre;
     private ImageView shareOffre;
-    private ImageView copy_offre;
+    private ImageView web_offre;
 
 
 
@@ -49,33 +39,32 @@ public class OffreActivity extends AppCompatActivity {
         create_offre = findViewById(R.id.create_offre_activity);
         applyOffre = findViewById(R.id.apply_offre);
         shareOffre = findViewById(R.id.share_offre);
-        copy_offre = findViewById(R.id.copy_offre);
+        web_offre = findViewById(R.id.web_offre);
 
         /*modification des éléments*/
         title_offre.setText(AdapterOffreH.o.getTitle());
-        description_offre.setText(CleanString(AdapterOffreH.o.getDescription()));
+        description_offre.setText(cleanString(AdapterOffreH.o.getDescription()));
         location_offre.setText("Location : "+AdapterOffreH.o.getLocation());
         create_offre.setText("Date of creation : "+AdapterOffreH.o.getCreated_at());
 
         /*Recuperation  de l'image*/
         String url = AdapterOffreH.o.getCompany_logo();
         Picasso.with(this).load(url).resize(461,134).into(imageOffre);
-        System.out.println(AdapterOffreH.o.getCompany_url());
-        System.out.println(AdapterOffreH.o.getHow_to_apply());
+        final String site = AdapterOffreH.o.getCompany_url().toString();
+        final String apply = cleanString(AdapterOffreH.o.getHow_to_apply().toString());
         applyOffre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent browserItem = new Intent(Intent.ACTION_VIEW, Uri.parse(apply));
+                startActivity(browserItem);
             }
         });
 
-        copy_offre.setOnClickListener(new View.OnClickListener() {
+        web_offre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clipData = ClipData.newPlainText("EditText", description_offre.getText().toString());
-                clipboardManager.setPrimaryClip(clipData);
-                Toast.makeText(getApplicationContext(), "Copied",Toast.LENGTH_SHORT).show();
+                Intent browserItem = new Intent(Intent.ACTION_VIEW, Uri.parse(site));
+                startActivity(browserItem);
             }
         });
         shareOffre.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +91,7 @@ public class OffreActivity extends AppCompatActivity {
 
     }
 
-    String CleanString(String chaine){
+    String cleanString(String chaine){
         String s="";
         int j = 0;
         char arr[]=chaine.toCharArray();

@@ -1,6 +1,5 @@
 package com.example.ndesigne.job2.adapter;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ndesigne.job2.MainActivity;
-import com.example.ndesigne.job2.OffreActivity;
 import com.example.ndesigne.job2.R;
 import com.example.ndesigne.job2.entities.Offre;
 import com.example.ndesigne.job2.viewholder.OffreViewH;
@@ -26,11 +24,11 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
 
     //la liste des element a afficher
     ArrayList<Offre> list;
+
     //le LayoutInflater
     LayoutInflater inflater;
 
     //definit l'id de l'offre a la quelle on veut acceder
-    static int toacces;
     public static  Offre o;
 
     public AdapterOffreH(ArrayList<Offre> list, LayoutInflater inflater) {
@@ -47,7 +45,9 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
 
     @Override
     public void onBindViewHolder(@NonNull final OffreViewH offreViewH, final int i) {
+
             o = list.get(i);
+
         //on met a jour les element de la vue
           offreViewH.titleOffre.setText(o.getTitle());
           offreViewH.companyOffre.setText(o.getCompany());
@@ -55,18 +55,11 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
           offreViewH.dateOffre.setText(o.getCreated_at());
           offreViewH.typeOffre.setText(o.getType());
 
-
-
-        //toacces = i;
-
         offreViewH.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 MainActivity.openOffre(i);
                 o = list.get(i);
-              /*  OffreActivity offreActivity= new OffreActivity();
-                Intent intent = new Intent(MainActivity.MY_CONTEXT, OffreActivity.class);*/
             }
         });
 

@@ -246,6 +246,7 @@ public class MakeCvActivity extends AppCompatActivity {
 
         paint.setTextSize(11);
         paint.setColor(BLACK);
+
 //        on affiche les paires cles valeurs de detailles
         for (int i = 0; i < Details.length; i++) {
             Log.i("VALUE", values.get(i+1));
@@ -286,6 +287,7 @@ public class MakeCvActivity extends AppCompatActivity {
             y+=pasCont;
             canvas.drawText(exp.societe, xValue, y, paint);
             y+=pasCont;
+
             //on definit la couleur pour ajouter des taches
             paint.setColor(BLACK);
             for (String tache: exp.taches){
