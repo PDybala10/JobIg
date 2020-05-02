@@ -11,7 +11,7 @@ https://jobs.github.com/
 
 * Nde Signe Igor berenger
 
-### Prérequis
+## Prérequis
 
 * Installation d'android Studio 
 
@@ -25,7 +25,7 @@ https://developer.android.com/studio/
 https://github.com/PDybala10/JobIg.git
 ```
 
-### Installation
+## Installation
 
 Il suffit de faire un pull sur la branche master de notre github ci-dessus et après lancer l'application.
 
@@ -48,7 +48,7 @@ Il suffit de faire un pull sur la branche master de notre github ci-dessus et ap
 * Nettoyage des données brute récupéré via l'api Rest pour une meilleure présentation.
 * Récupération des logos d'entreprise pour chaque offre via un lien donnée par l'API.
 
-### Fonctionnalités : 
+## Fonctionnalités : 
 
 #### Premier écran
 * Splash affichant le logo de l'application (logo crée)
