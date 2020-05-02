@@ -29,21 +29,14 @@ https://github.com/PDybala10/JobIg.git
 
 Il suffit de faire un pull sur la branche master de notre github ci-dessus et après lancer l'application.
 
-Say what the step will be
+## Consignes respectées:
 
-```
-Give the example
-```
+* Ecran avec une liste d’éléments.
+* Ecran avec le détail d’un élément.
+* Appel WebService à une API Rest.
+* Stockage de données en cache.
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
+## Les pus:
 
 Explain how to run the automated tests for this system
 
