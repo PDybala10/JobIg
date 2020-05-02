@@ -81,7 +81,7 @@ public class MakeCvActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_make_cv);
 
-        viewPager = (ViewPager)findViewById(R.id.vp_make_cv);
+        viewPager = findViewById(R.id.vp_make_cv);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -111,25 +111,25 @@ public class MakeCvActivity extends AppCompatActivity {
             }
         });
 
-        next = (ImageButton)findViewById(R.id.ib_next_make_cv);
+        next = findViewById(R.id.ib_next_make_cv);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int c =viewPager.getCurrentItem();
+                int c = viewPager.getCurrentItem();
                 if (c < MAX_VP){
                     viewPager.setCurrentItem(c+1);
                 }
             }
         });
 
-        preview = (ImageButton)findViewById(R.id.ib_preview_make_cv);
+        preview = findViewById(R.id.ib_preview_make_cv);
         preview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int c =viewPager.getCurrentItem();
+                int c = viewPager.getCurrentItem();
                 if (c > 0){
                     viewPager.setCurrentItem(c-1);
-                }
+                 }
             }
         });
 
