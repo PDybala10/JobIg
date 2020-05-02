@@ -57,14 +57,22 @@ Il suffit de faire un pull sur la branche master de notre github ci-dessus et ap
 </p>
 
 #### Ecran Home
-* affiche la liste d'offre d'emploie par catégorie
+* affiche la liste d'offre d'emploi par catégorie et possibilité de faire des scrolls horizontaux et verticaux.
 
 <p align="start">
   <img src="https://github.com/PDybala10/JobIg/blob/develop/images/aceuil.png" width="250" height="500" title="splash">
+   <img src="https://github.com/PDybala10/JobIg/blob/develop/images/acceuil2.png" width="250" height="500" title="splash">
+   <img src="https://github.com/PDybala10/JobIg/blob/develop/images/acceuil3.png" width="250" height="500" title="splash">
+</p>
 
-  <video width="320" height="240" autoplay>
-  <source src="https://github.com/PDybala10/JobIg/blob/develop/images/scroll.webm" type="video/webm">
-  </video>
+#### Ecran Offre
+* affiche le détail sur une offre et donne la possibilité à l'utilisateur de la partagée de visiter le site web de l'entreprise ou encore de postuler directement.
+
+<p align="start">
+  <img src="https://github.com/PDybala10/JobIg/blob/develop/images/offre.png" width="250" height="500" title="splash">
+   <img src="https://github.com/PDybala10/JobIg/blob/develop/images/share.png" width="250" height="500" title="splash">
+   <img src="https://github.com/PDybala10/JobIg/blob/develop/images/site.png" width="250" height="500" title="splash">
+   <img src="https://github.com/PDybala10/JobIg/blob/develop/images/apply.png" width="250" height="500" title="splash">
 </p>
 
 
