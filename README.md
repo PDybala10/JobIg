@@ -52,6 +52,19 @@ Il suffit de faire un pull sur la branche master de notre github ci-dessus et ap
 #### Premier écran
 * splash affichant le logo de l'application (logo crée)
 
+<p align="start">
+  <img src="https://github.com/PDybala10/JobIg/blob/develop/images/splash.png" width="250" height="500" title="splash">
+</p>
+
+#### Ecran Home
+* affiche la liste d'offre d'emploie par catégorie
+
+<p align="start">
+  <img src="https://github.com/PDybala10/JobIg/blob/develop/images/splash.png" width="250" height="500" title="splash">
+</p>
+
+
+
 
 
 ```
