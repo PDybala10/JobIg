@@ -1,7 +1,7 @@
 # JobIg
 
 Jobig est une application android qui permettra aux étudiants de l'Esiea de trouver un stage ou une alternance lors de leurs formations.
-Cette application affiche les offres d'emplois en utilisant une API de github disponible sur le lien suivant :
+Cette application affiche les offres d'emplois en utilisant une API de github disponible via le lien suivant :
 
 ```
 https://jobs.github.com/
