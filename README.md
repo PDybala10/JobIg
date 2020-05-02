@@ -38,11 +38,21 @@ Il suffit de faire un pull sur la branche master de notre github ci-dessus et ap
 
 ## Les pus:
 
-Explain how to run the automated tests for this system
+* Gitflow
+* Design
+* Notifications Push ( Firebase ) 
+* possibilité de crée un Cv et génération d'un fichier PDF avec un modèle plutôt pas mal.
+* About us permettant de présenter la version de l'application et de contacter les programmeurs.
+* Utilisation des cards view et possibilité de faire des scrolls horizontaux et verticaux.
+* Catégorisation (algorithme de classification des offres par catégories).
+* nettoyage des données brute récupéré via l'api Rest pour une meilleure présentation.
 
-### Break down into end to end tests
+### Fonctionnalités : 
 
-Explain what these tests test and why
+#### Premier écran
+* splash affichant le logo de l'application (logo crée)
+
+
 
 ```
 Give an example
