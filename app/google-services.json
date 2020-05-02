@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "978104539438",
+    "firebase_url": "https://jobig-9400c.firebaseio.com",
+    "project_id": "jobig-9400c",
+    "storage_bucket": "jobig-9400c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978104539438:android:f3eccfa4239b45ccd542bf",
+        "android_client_info": {
+          "package_name": "com.example.ndesigne.job2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978104539438-p7qi0dcnia6snu97u2r63kciu0rrv926.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ndesigne.job2",
+            "certificate_hash": "873d7f5689d7ec7aa378b97febaba24c24538202"
+          }
+        },
+        {
+          "client_id": "978104539438-hgf78u65otmgbpsce9kt8kee8qodv8gk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjWa9SaLgkPjBsbCa1qc4_nOODl9W6FSk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978104539438-hgf78u65otmgbpsce9kt8kee8qodv8gk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
