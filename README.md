@@ -53,6 +53,9 @@ Il suffit de faire un pull sur la branche master de notre github ci-dessus et ap
 * splash affichant le logo de l'application (logo crée)
 
 
+![splash](https://github.com/PDybala10/JobIg.git/develop/images/splash.png)
+
+
 
 ```
 Give an example
