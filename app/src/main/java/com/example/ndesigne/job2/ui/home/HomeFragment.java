@@ -19,6 +19,7 @@ import com.example.ndesigne.job2.R;
 import com.example.ndesigne.job2.adapter.AdapterOffreCategorie;
 import com.example.ndesigne.job2.entities.Offre;
 import com.example.ndesigne.job2.entities.OffreCategorie;
+import com.example.ndesigne.job2.network.InternetConnection;
 import com.example.ndesigne.job2.preferences.OffrePreference;
 import com.example.ndesigne.job2.service.Service;
 import com.google.gson.Gson;
@@ -60,16 +61,20 @@ public class HomeFragment extends Fragment {
                 .setLenient()
                 .create();
         List<Offre> listOffresPreferences = getDataPreferences();
-        if(listOffresPreferences != null){
+
+        if(listOffresPreferences != null && !InternetConnection.checkConnection(getContext())){
 
            buildRecycleView(listOffresPreferences);
+
         }
         else {
-            MakeApiCall();
+            makeApiCall();
+
         }
 
         return root;
     }
+
 
     private List<Offre> getDataPreferences() {
         String jsonOffre =  preferences.getString(OffrePreference.PREFERENCE_KEY,null);
@@ -84,7 +89,7 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void MakeApiCall(){
+    private void makeApiCall(){
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
@@ -101,6 +106,7 @@ public class HomeFragment extends Fragment {
                   for(int i=0; i<response.body().size(); i++) {
 
                       offreList.add(response.body().get(i));
+
                   }
                     savePreferences(offreList);
                     buildRecycleView(offreList);
@@ -208,5 +214,7 @@ public class HomeFragment extends Fragment {
         return categorie;
 
     }
+
+
 
 }

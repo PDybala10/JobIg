@@ -38,7 +38,7 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
 
     @NonNull
     @Override
-    public OffreViewH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        public OffreViewH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View ov = inflater.inflate(R.layout.card_offre,viewGroup,false);
         return new OffreViewH(ov);
     }
