@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.cv.DetailsCvFragment">
+    tools:context=".view.ui.cv.DetailsCvFragment">
     <ScrollView
         android:id="@+id/scroll_view_fragment"
         android:layout_width="match_parent"
