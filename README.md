@@ -36,7 +36,7 @@ Il suffit de faire un pull sur la branche master de notre github ci-dessus et ap
 * Appel WebService à une API Rest.
 * Stockage de données en cache.
 
-## Les pus:
+## Les plus:
 
 * Gitflow
 * MVC
