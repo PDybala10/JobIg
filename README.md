@@ -39,6 +39,7 @@ Il suffit de faire un pull sur la branche master de notre github ci-dessus et ap
 ## Les pus:
 
 * Gitflow
+* MVC
 * Design
 * Notifications Push ( Firebase ) 
 * possibilité de crée un Cv et génération d'un fichier PDF avec un modèle plutôt pas mal.
