@@ -33,20 +33,25 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerViewOffre;
     private RecyclerView.Adapter adapter;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
+
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         recyclerViewOffre = root.findViewById(R.id.recycle_view_fragment_home);
 
-        HomeFragmentController controller = new HomeFragmentController(this,
+         HomeFragmentController controller = new HomeFragmentController(this,
                 new GsonBuilder()
                          .setLenient()
                          .create(),
                 getContext().getSharedPreferences(OffrePreference.PREFERENCE_NAME, Context.MODE_PRIVATE)
                 );
+
+
 
 
         controller.onStart();
