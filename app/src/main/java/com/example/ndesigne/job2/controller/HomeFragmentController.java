@@ -1,7 +1,6 @@
 package com.example.ndesigne.job2.controller;
 
 import android.content.SharedPreferences;
-import android.widget.Toast;
 
 import com.example.ndesigne.job2.model.Offre;
 import com.example.ndesigne.job2.model.OffreCategorie;
@@ -12,9 +11,11 @@ import com.example.ndesigne.job2.view.MainActivity;
 import com.example.ndesigne.job2.view.ui.home.HomeFragment;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,10 +70,11 @@ public class HomeFragmentController {
                     }
                     savePreferences(offreList);
                     view.buildRecycleView(offreList,HomeFragmentController.this);
-                    Toast.makeText(MainActivity.MY_CONTEXT,"serveur good",Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.MY_CONTEXT,"serveur good",Toast.LENGTH_SHORT).show();
                 }
                 else {
                     view.showError();
+
                 }
             }
 
@@ -87,14 +89,18 @@ public class HomeFragmentController {
 
         List<Offre> listOffresPreferences = getDataPreferences();
 
-        if(listOffresPreferences != null && !InternetConnection.checkConnection(view.getContext())){
+        if(listOffresPreferences != null && !InternetConnection.checkConnection(view.getContext()) ){
 
             view.buildRecycleView(listOffresPreferences,HomeFragmentController.this);
 
         }
-        else {
-            makeApiCall();
+        else if(MainActivity.start == 0) {
+         MainActivity.start = 1;
+        makeApiCall();
 
+        }
+        else {
+            view.buildRecycleView(listOffresPreferences,HomeFragmentController.this);
         }
     }
 
@@ -106,7 +112,7 @@ public class HomeFragmentController {
                 .putString(OffrePreference.PREFERENCE_KEY, jsonString)
                 .apply();
 
-        Toast.makeText(MainActivity.MY_CONTEXT," list saved",Toast.LENGTH_SHORT).show();
+     //   Toast.makeText(MainActivity.MY_CONTEXT," list saved",Toast.LENGTH_SHORT).show();
     }
 
     public OffreCategorie createCategorieAutre(ArrayList<String> nameCategorie, List<Offre> offres){

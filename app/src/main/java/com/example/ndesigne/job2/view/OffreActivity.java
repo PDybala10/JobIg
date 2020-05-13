@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ndesigne.job2.R;
 import com.example.ndesigne.job2.controller.OffreController;
+import com.example.ndesigne.job2.presentation.network.InternetConnection;
 import com.example.ndesigne.job2.view.adapter.AdapterOffreH;
 import com.squareup.picasso.Picasso;
 
@@ -50,34 +52,53 @@ public class OffreActivity extends AppCompatActivity {
         create_offre.setText("Date of creation : "+AdapterOffreH.o.getCreated_at());
 
         /*Recuperation  de l'image*/
-        String url = AdapterOffreH.o.getCompany_logo();
-        Picasso.with(this).load(url).resize(461,134).into(imageOffre);
+      if(InternetConnection.checkConnection(getApplicationContext())){
+            String url = AdapterOffreH.o.getCompany_logo();
+            Picasso.with(this).load(url).resize(461, 134).into(imageOffre);
+        }
+      else {
+
+          imageOffre.setImageResource(R.drawable.ic_signal_wifi_off_black_24dp);
+
+      }
+
         final String site = AdapterOffreH.o.getCompany_url().toString();
         final String apply = OffreController.cleanString(AdapterOffreH.o.getHow_to_apply().toString());
         applyOffre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserItem = new Intent(Intent.ACTION_VIEW, Uri.parse(apply));
-                startActivity(browserItem);
+               try {
+                   Intent browserItem = new Intent(Intent.ACTION_VIEW, Uri.parse(apply));
+                   startActivity(browserItem);
+               }catch (Exception e){
+                   Toast.makeText(MainActivity.MY_CONTEXT,"indisponible veillez retouvez l'offre sur le site via le bouton à gauche", Toast.LENGTH_LONG).show();
+               }
+
             }
         });
 
         web_offre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent browserItem = new Intent(Intent.ACTION_VIEW, Uri.parse(site));
-                startActivity(browserItem);
+
+                try {
+                    Intent browserItem = new Intent(Intent.ACTION_VIEW, Uri.parse(site));
+                    startActivity(browserItem);
+                }catch (Exception e){
+                    Toast.makeText(MainActivity.MY_CONTEXT," site indisponible", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         shareOffre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT, description_offre.getText());
-                intent.setType("text/plain");
-                intent = Intent.createChooser(intent, "Share by");
-                startActivity(intent);
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_SEND);
+                    intent.putExtra(Intent.EXTRA_TEXT, description_offre.getText());
+                    intent.setType("text/plain");
+                    intent = Intent.createChooser(intent, "Share by");
+                    startActivity(intent);
+
             }
         });
 

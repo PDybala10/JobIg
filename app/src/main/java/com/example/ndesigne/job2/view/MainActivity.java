@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private static TextView title_offre;
     private AppBarConfiguration mAppBarConfiguration;
     public static Context MY_CONTEXT;
+    public static int start = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

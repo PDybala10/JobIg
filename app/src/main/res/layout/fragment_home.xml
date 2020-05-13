@@ -12,6 +12,16 @@
         android:foregroundGravity="center_horizontal"
         android:id="@+id/recycle_view_fragment_home">
     </androidx.recyclerview.widget.RecyclerView>
+    <ImageButton
+        android:id="@+id/pas_connexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_signal_wifi_off_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
