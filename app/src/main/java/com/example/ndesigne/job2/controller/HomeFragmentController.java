@@ -73,8 +73,14 @@ public class HomeFragmentController {
                    // Toast.makeText(MainActivity.MY_CONTEXT,"serveur good",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    view.showError();
-
+                    List<Offre> listOffresPreferences = getDataPreferences();
+                    if(listOffresPreferences != null) {
+                        view.buildRecycleView(listOffresPreferences, HomeFragmentController.this);
+                    }
+                    else {
+                        makeApiCall();
+                    }
+                   // view.showError();
                 }
             }
 
