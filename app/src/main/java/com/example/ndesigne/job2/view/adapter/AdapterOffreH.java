@@ -3,10 +3,12 @@ package com.example.ndesigne.job2.view.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ndesigne.job2.controller.OffreController;
 import com.example.ndesigne.job2.view.MainActivity;
 import com.example.ndesigne.job2.R;
 import com.example.ndesigne.job2.model.Offre;
@@ -49,7 +51,7 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
             o = list.get(i);
 
         //on met a jour les element de la vue
-          offreViewH.titleOffre.setText(o.getTitle());
+          offreViewH.titleOffre.setText(OffreController.cleanString2(o.getTitle()));
           offreViewH.companyOffre.setText(o.getCompany());
           offreViewH.locationOffre.setText(o.getLocation());
           offreViewH.dateOffre.setText(o.getCreated_at());
@@ -58,8 +60,12 @@ public class AdapterOffreH extends RecyclerView.Adapter<OffreViewH> {
         offreViewH.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.openOffre(i);
-                o = list.get(i);
+                try {
+                    MainActivity.openOffre(i);
+                    o = list.get(i);
+                }catch (Exception e){
+                    Toast.makeText(MainActivity.MY_CONTEXT,"l'offre n'est plus disponible",Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

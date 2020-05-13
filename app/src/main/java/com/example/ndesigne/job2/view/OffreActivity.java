@@ -1,5 +1,6 @@
 package com.example.ndesigne.job2.view;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,6 +31,7 @@ public class OffreActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,7 @@ public class OffreActivity extends AppCompatActivity {
         web_offre = findViewById(R.id.web_offre);
 
         /*modification des éléments*/
-        title_offre.setText(AdapterOffreH.o.getTitle());
+        title_offre.setText(OffreController.cleanString2(AdapterOffreH.o.getTitle()));
         description_offre.setText(OffreController.cleanString(AdapterOffreH.o.getDescription()));
         location_offre.setText("Location : "+AdapterOffreH.o.getLocation());
         create_offre.setText("Date of creation : "+AdapterOffreH.o.getCreated_at());
