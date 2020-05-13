@@ -122,12 +122,12 @@ public class HomeFragmentController {
         for (int i=0; i<offres.size(); i++){
             test = false;
             for (int j=0; j<nameCategorie.size(); j++){
-                if(findWords(nameCategorie.get(j),offres.get(i).getTitle()) == true || findWords(nameCategorie.get(j).toLowerCase(),offres.get(i).getTitle().toLowerCase()) == true){
+                if(findWords(nameCategorie.get(j), offres.get(i).getTitle()) || findWords(nameCategorie.get(j).toLowerCase(), offres.get(i).getTitle().toLowerCase())){
                     test= true;
                 }
 
             }
-            if (test == false){
+            if (!test){
                 categorie.getData().add(offres.get(i));
             }
 
@@ -151,7 +151,7 @@ public class HomeFragmentController {
         OffreCategorie categorie = new OffreCategorie();
         categorie.setTitre(nameCategorie);
         for (int i=0; i<offres.size(); i++){
-            if(findWords(nameCategorie,offres.get(i).getTitle()) == true || findWords(nameCategorie.toLowerCase(),offres.get(i).getTitle().toLowerCase()) == true ){
+            if(findWords(nameCategorie, offres.get(i).getTitle()) || findWords(nameCategorie.toLowerCase(), offres.get(i).getTitle().toLowerCase())){
                 categorie.getData().add(offres.get(i));
             }
         }
